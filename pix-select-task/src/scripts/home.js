@@ -17,7 +17,7 @@ const Hello = () => {
                 var myData = [];
                 response.data.results.forEach(element => {
                     const jsonObject = {
-                        id : element.id,
+                        id :element.id,
                         poster_path: `https://image.tmdb.org/t/p/original//${element.poster_path}`,
                         original_title : element.original_title
                     };

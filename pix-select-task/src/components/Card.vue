@@ -1,29 +1,31 @@
 <template>
-    <div class="container">
-        <div class="row" v-if="success">
-            <div class="col-md-4" v-for="data in data" :key="data">
-                <div class="card mt-3">
-                    <img :src="data.poster_path" class="card-img-top" alt="...">
-                    <div class="descriptions">
-                        <h1>{{ data.original_title }}</h1>
-                        <button @click="goToDetail(data.id)">
-                            <i class="fab fa-youtube"></i>
-                            Play trailer on YouTube
-                        </button>
-                    </div>
-                </div>
-            </div>
+   
+    <div class="card mt-3">
+        <img :src="props.data.poster_path" class="card-img-top" alt="...">
+        <div class="descriptions">
+            <h1>{{ props.data.original_title }}</h1>
+            <button @click="goToDetail(props.data.id)">
+                <i class="fab fa-youtube"></i>
+                Detay Göster
+            </button>
         </div>
     </div>
 </template>
-<script setup>
-import Hello from '../scripts/home.js'
+<script>
 import router from '../router/router'
-const { getFavoriteMovies, data, success } = Hello();
-getFavoriteMovies();
-const goToDetail = (id) => {
-    router.push(`/detail/${id}`);
+export default {
+    props: ['data'],
+    setup(props) {
+        const goToDetail = (id) => {
+            // router.push(`/detail/${id}`);
+            router.push({ path: '/detail', query: { movie: id } })
+        }
+        return {
+            goToDetail,props
+        }
+    }
 }
+
 </script>
 <style scoped>
 @import url('../styles/card.css');
