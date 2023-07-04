@@ -6,7 +6,7 @@
                     <img :src="data.poster_path" class="card-img-top" alt="...">
                     <div class="descriptions">
                         <h1>{{ data.original_title }}</h1>
-                        <button @click="goToDetail()">
+                        <button @click="goToDetail(data.id)">
                             <i class="fab fa-youtube"></i>
                             Play trailer on YouTube
                         </button>
@@ -21,8 +21,8 @@ import Hello from '../scripts/home.js'
 import router from '../router/router'
 const { getFavoriteMovies, data, success } = Hello();
 getFavoriteMovies();
-const goToDetail = () => {
-    router.push('/detail');
+const goToDetail = (id) => {
+    router.push(`/detail/${id}`);
 }
 </script>
 <style scoped>
