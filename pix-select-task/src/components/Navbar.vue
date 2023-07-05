@@ -11,7 +11,6 @@
 
                 <form class="form-inline my-2 my-lg-0">
                     <input  class="form-control mr-sm-2" v-model="search" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Film Ara</button>
                     <router-link to="/favorites" class="ml-3 badge badge-primary p-2">Favorileri Göster</router-link>
                     {{ searchData }}
                     <!-- <div v-for="data in searchData">

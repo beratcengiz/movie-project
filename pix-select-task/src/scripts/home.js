@@ -5,15 +5,22 @@ const api = axios.create({ baseURL: import.meta.env.VITE_BASE_URL });
 const api_key = import.meta.env.VITE_API_KEY;
 const data = ref([]);
 const success = ref(false);
-const search = ref('')
+const search = ref('');
+const result = ref('')
 const Hello = () => {
     const searchData = computed(() => {
         if (search.value !== '') {
             data.value = data.value.filter(post => {
                 return post.title.toLowerCase().includes(search.value.toLowerCase())
-            })
+            });
+            if(data.value.length == 0) {
+                result.value = 'sonuc'
+            } else {
+               
+            }
         } else {
-            getFavoriteMovies()
+            getFavoriteMovies();
+            result.value = ''
         }
     });
 
@@ -26,7 +33,7 @@ const Hello = () => {
         });
 
     }
-    return { getFavoriteMovies, data, success, search, searchData }
+    return { getFavoriteMovies, data, success, search, searchData, result }
 }
 
 export default Hello;

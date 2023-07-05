@@ -2,7 +2,10 @@
     <div>
         <div class="container">
             <div class="row">
-                <div class="col-md-4" v-for="data in data" :key="data">
+                <div v-if="result == 'sonuc'">
+                    sonuç yok
+                </div>
+                <div class="col-md-4" v-for="data in data" :key="data" v-else>
                     <Card :data="data"></Card>
                 </div>
             </div>
@@ -14,7 +17,7 @@ import Card from '../components/Card.vue'
 import Hello from '../scripts/home.js'
 import {onMounted} from 'vue';
 
-const {data,getFavoriteMovies}= Hello();
+const {data,getFavoriteMovies,result}= Hello();
 onMounted(async () => {
   await getFavoriteMovies();
 
