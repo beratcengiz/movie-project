@@ -4,12 +4,14 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "cross-env NODE_ENV=development vite",
+    "prd": "cross-env NODE_ENV=production vite build --mode production",
     "build": "vite build",
     "preview": "vite preview"
   },
   "dependencies": {
     "axios": "^1.4.0",
+    "cross-env": "^7.0.3",
     "pinia": "^2.1.4",
     "vue": "^3.2.47",
     "vue-router": "^4.2.2"

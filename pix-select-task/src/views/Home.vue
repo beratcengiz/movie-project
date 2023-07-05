@@ -12,9 +12,12 @@
 <script setup>
 import Card from '../components/Card.vue'
 import Hello from '../scripts/home.js'
-import { onMounted } from 'vue';
-const { getFavoriteMovies, data, success } = Hello();
-onMounted(() => {
-    getFavoriteMovies();
+import {onMounted} from 'vue';
+
+const {data,getFavoriteMovies}= Hello();
+onMounted(async () => {
+  await getFavoriteMovies();
+
 })
+
 </script>

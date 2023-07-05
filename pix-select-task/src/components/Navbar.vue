@@ -10,11 +10,28 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
                 <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <input  class="form-control mr-sm-2" v-model="search" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Film Ara</button>
                     <router-link to="/favorites" class="ml-3 badge badge-primary p-2">Favorileri Göster</router-link>
+                    {{ searchData }}
+                    <!-- <div v-for="data in searchData">
+                        <Card :data = "data"></Card>
+                    </div> -->
                 </form>
             </div>
         </div>
     </div>
+    
 </template>
+<script setup>
+import {ref, computed} from 'vue'
+import Hello from '../scripts/home.js'
+import Card from './Card.vue'
+const {search,searchData}= Hello();
+// const search = ref('');
+
+// console.log('search',searchData)
+
+
+
+</script>
