@@ -19,6 +19,6 @@ const Search = () => {
             result.value = ''
         }
     });
-    return { searchData, search }
+    return { searchData, search, result }
 }
 export default Search;

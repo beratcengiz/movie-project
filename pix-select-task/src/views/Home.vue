@@ -15,9 +15,11 @@
 <script setup>
 import Card from '../components/Card.vue'
 import Home from '../scripts/home.js'
+import Search from '../scripts/search';
 import {onMounted} from 'vue';
 
-const {data,getFavoriteMovies,result}= Home();
+const {data,getFavoriteMovies}= Home();
+const {result} = Search()
 onMounted(async () => {
   await getFavoriteMovies();
 
