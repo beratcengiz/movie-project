@@ -5,7 +5,7 @@
                 <div v-if="result == 'sonuc'">
                     sonuç yok
                 </div>
-                <div class="col-md-4" v-for="data in data" :key="data" v-else>
+                <div class="col-md-4 col-sm-6 col-lg-3" v-for="data in data" :key="data" v-else>
                     <Card :data="data"></Card>
                 </div>
             </div>
@@ -14,10 +14,10 @@
 </template>
 <script setup>
 import Card from '../components/Card.vue'
-import Hello from '../scripts/home.js'
+import Home from '../scripts/home.js'
 import {onMounted} from 'vue';
 
-const {data,getFavoriteMovies,result}= Hello();
+const {data,getFavoriteMovies,result}= Home();
 onMounted(async () => {
   await getFavoriteMovies();
 

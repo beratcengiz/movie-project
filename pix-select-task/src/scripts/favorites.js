@@ -1,4 +1,5 @@
 import {ref} from 'vue'
+import Home from './home'
 let data = ref([])
 const myFavorities = () => {
     const addData = (parameter) => {

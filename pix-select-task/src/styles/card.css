@@ -58,7 +58,7 @@ body {
     filter: blur(3px);
 }
 
-.card h1 {
+.card h3 {
     color: #ff3838;
     letter-spacing: 1px;
     margin: 0px;
