@@ -1,11 +1,15 @@
 import {ref} from 'vue'
-import Home from './home'
-let data = ref([])
+let data = ref([]);
+let favoriteCount = ref(0)
 const myFavorities = () => {
-    const addData = (parameter) => {
+    const addFavorites = (parameter) => {
         data.value.push(parameter);
-        console.log('data',data.value)
+        favoriteCount.value++;
     }
-    return {addData,data}
+    const removeFavorites = (parameter) => {
+        favoriteCount.value--;
+        data.value = data.value.filter(el => el.id != parameter.id)
+    }
+    return {addFavorites,data,favoriteCount,removeFavorites}
 }
 export default myFavorities;

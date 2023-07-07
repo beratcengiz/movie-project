@@ -11,5 +11,4 @@
 import Card from '../components/Card.vue';
 import myFavorites from '../scripts/favorites.js'
 const {data} = myFavorites();
-console.log('asdasf',data)
 </script>

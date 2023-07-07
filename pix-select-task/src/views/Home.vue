@@ -5,7 +5,7 @@
                 <div v-if="result == 'sonuc'">
                     sonuç yok
                 </div>
-                <div class="col-md-4 col-sm-6 col-lg-3" v-for="data in data" :key="data" v-else>
+                <div class="col-md-4 col-sm-6 col-lg-4 col-xl-4" v-for="(data,index) in data" :key="data" v-else>
                     <Card :data="data"></Card>
                 </div>
             </div>

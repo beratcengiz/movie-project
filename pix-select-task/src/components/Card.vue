@@ -13,9 +13,13 @@
                     <i class="fab fa-youtube"></i>
                     Detay Göster
                 </button>
-                <button @click="a(props.data)" class="ml-2">
+                <button @click="addFavorites(props.data)" class="ml-2" v-if="url != '/favorites'">
                     <i class="fab fa-youtube"></i>
                     Favorilere Ekle
+                </button>
+                <button @click="removeFavorites(props.data)" class="ml-2" v-if="url == '/favorites'">
+                    <i class="fab fa-youtube"></i>
+                    Favorilerden Çıkar
                 </button>
             </div>
         </div>
@@ -24,21 +28,19 @@
 <script>
 import router from '../router/router'
 import myFavorites from '../scripts/favorites.js'
+import {ref} from 'vue'
 export default {
     props: ['data'],
     setup(props) {
         const ImagePATH = import.meta.env.VITE_TMDB_PATH
-        const { addData } = myFavorites();
-        const a = (id) => {
-            console.log('id', id)
-            addData(id)
-        }
+        const { addFavorites, removeFavorites } = myFavorites();
+        const url = ref(window.location.pathname)
         const goToDetail = (id) => {
             // router.push(`/detail/${id}`);
             router.push({ path: '/detail', query: { movie: id } })
         }
         return {
-            goToDetail, props, a, addData, ImagePATH
+            goToDetail, props,addFavorites, ImagePATH,url,removeFavorites
         }
     }
 }

@@ -1,9 +1,9 @@
 import Home from "./home"
 import { computed, ref } from "@vue/reactivity";
 const search = ref('');
-const result = ref('')
+const result = ref('');
+const { data, getFavoriteMovies } = Home();
 const Search = () => {
-    const { data, getFavoriteMovies } = Home();
     const searchData = computed(() => {
         if (search.value !== '') {
             data.value = data.value.filter(post => {
