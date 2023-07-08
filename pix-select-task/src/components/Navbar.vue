@@ -11,7 +11,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
                 <form class="form-inline my-2 my-lg-0">
-                    <input  class="form-control mr-sm-2" v-model="search" type="search" placeholder="Film Ara" aria-label="Search">
+                    <input  class="form-control mr-sm-2" v-model="search" type="search" placeholder="Film Ara" aria-label="Search" v-if="route.path == '/'">
                     <!-- <router-link to="/favorites" class="ml-3 badge badge-secondary p-2">Favorileri Göster</router-link> -->
                     <button type="button" class="btn btn-sm btn-success" @click="goFavoritePage()">
                     Favoriler <span class="badge badge-light">{{ favoriteCount }}</span>
@@ -32,6 +32,8 @@ import {ref, computed} from 'vue'
 import Search from '../scripts/search.js'
 import myFavorities from '../scripts/favorites.js'
 import router from '../router/router.js'
+import { useRoute } from 'vue-router';
+
 const {search,searchData}= Search();
 const {favoriteCount} = myFavorities();
 const goFavoritePage = () => {
@@ -39,6 +41,8 @@ const goFavoritePage = () => {
         router.push({ path: '/favorites'})
     }
 }
+const route = useRoute();
+console.log('route',route.path)
 console.log(favoriteCount)
 // const search = ref('');
 

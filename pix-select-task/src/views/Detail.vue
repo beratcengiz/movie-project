@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12" v-for="data in data" :key="data">
-                <div class="card mt-3" style="box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;border-radius: 5%;">
+                <div class="card mt-5" style="box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;border-radius: 5%;">
                     <div class="row no-gutters">
                         <div class="col-md-5">
                             <img style="height: 60vh ; border-radius: 5% 0 0 5%;" :src="ImagePATH+data.poster_path" class="card-img-top" alt="...">
