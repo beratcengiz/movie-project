@@ -1,7 +1,7 @@
 <template>
-    <div class="card mt-3">
+    <div class="my-card mt-3">
 
-        <img :src="ImagePATH + props.data?.poster_path" class="card-img-top" alt="...">
+        <img :src="ImagePATH + props.data?.poster_path" class="my-card-img-top" alt="...">
         <div class="descriptions">
             <h3>{{ props.data?.original_title }}</h3>
             <div class="mt-3">

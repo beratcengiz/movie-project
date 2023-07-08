@@ -2,10 +2,10 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12" v-for="data in data" :key="data">
-                <div class="card mt-5" style="box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;border-radius: 5%;">
+                <div class="card mt-5" style="background-color: #f8f9fa;border:none">
                     <div class="row no-gutters">
                         <div class="col-md-5">
-                            <img style="height: 60vh ; border-radius: 5% 0 0 5%;" :src="ImagePATH+data.poster_path" class="card-img-top" alt="...">
+                            <Card :data="data"></Card>
                         </div>
                         <div class="col-md-6">
                             <div class="card-body ml-4">
@@ -28,6 +28,7 @@
 <script setup>
 import { useRoute } from 'vue-router'
 import Detail from '../scripts/detail.js'
+import Card from '../components/Card.vue';
 const route = useRoute();
 const ImagePATH = import.meta.env.VITE_TMDB_PATH
 const {data} = Detail(route);

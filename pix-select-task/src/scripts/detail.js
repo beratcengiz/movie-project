@@ -8,6 +8,7 @@ const Detail = (route) => {
         params: { api_key }
     });
     detail.then(element => {
+        console.log('detail',element.data)
         data.value.push(element.data)
     });
     return {data}
