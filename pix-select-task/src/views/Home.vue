@@ -21,7 +21,7 @@
             <div class="row" v-if="data.length > 19">
                 <div class="col-md-12">
                     <div class=" bg-dark text-white w-100 mt-3 mb-3 d-flex justify-content-center"
-                        style="border:1px solid white;cursor:pointer" @click="getCount()">Daha Fazla Göster</div>
+                        style="border:1px solid white;cursor:pointer" @click="setCount()">Daha Fazla Göster</div>
                 </div>
             </div>
         </div>
@@ -38,7 +38,7 @@ const { favoriteCount } = myFavorities();
 const { search, getSearchMovies, isSearch, searchKeyword } = Search();
 var count = ref(1);
 const { data, getFavoriteMovies } = Home()
-const getCount = () => {
+const setCount = () => {
     count.value++;
     if (searchKeyword.value) {
         getSearchMovies(searchKeyword.value, count.value)
