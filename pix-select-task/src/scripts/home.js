@@ -1,18 +1,26 @@
 
 import { ref, computed, watch } from "vue";
 import { api, api_key } from './axios.const';
-
+import axios from 'axios'
 const data = ref([]);
 const success = ref(false);
-
 const Home = () => {
-    
-
-    const getFavoriteMovies = async () => {
+    const getFavoriteMovies = async (count) => {
+        var page = count;
+        var language = 'tr-TR'
         await api.get("/movie/popular", {
-            params: { api_key }
+            params: { api_key,page,language }
         }).then(response => {
-            data.value = response.data.results
+            if(count >= 2) {
+                console.log('response2',response)
+                response.data.results.forEach(el => {
+                    data.value.push(el);
+                })
+            } else {
+                console.log('response',response.data.results)
+                data.value = response.data.results
+            }
+            
         });
 
     }

@@ -1,9 +1,9 @@
 <template>
-    <div class="my-card mt-3">
+    <div class="my-card">
 
         <img :src="ImagePATH + props.data?.poster_path" class="my-card-img-top" alt="...">
         <div class="descriptions">
-            <h3>{{ props.data?.original_title }}</h3>
+            <h3>{{ props.data?.title }}</h3>
             <div class="mt-3">
                 <h6>İmdb : {{ props.data?.vote_average }}</h6>
                 <h6>Çıkış Tarihi : {{ props.data?.release_date }}</h6>

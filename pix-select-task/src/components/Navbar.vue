@@ -1,8 +1,8 @@
 <template>
-    <div class="navbar navbar-expand-lg navbar-light bg-light d-flex justify-content-center">
+    <div class="navbar navbar-expand-lg navbar-light  d-flex justify-content-center w-100" style="position: fixed;z-index: 15;background-color: rgb(18,18,18);">
         
         <div class="d-flex justify-content-between align-items-center">
-            <router-link to="/" class="mr-5" style="color:black;font-weight: bold;" >PIXSELECT</router-link>
+            <router-link to="/" class="mr-5 text-white" style="color:white;font-weight: bold;" >PIX-SELECT-TASK</router-link>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -13,8 +13,8 @@
                 <form class="form-inline my-2 my-lg-0">
                     <input  class="form-control mr-sm-2" v-model="search" type="search" placeholder="Film Ara" aria-label="Search" v-if="route.path == '/'">
                     <!-- <router-link to="/favorites" class="ml-3 badge badge-secondary p-2">Favorileri Göster</router-link> -->
-                    <button type="button" class="btn btn-sm btn-success" @click="goFavoritePage()">
-                    Favoriler <span class="badge badge-light">{{ favoriteCount }}</span>
+                    <button type="button" class="btn btn-sm text-white" @click="goFavoritePage()">
+                    Favoriler <span class="badge badge-success">{{ favoriteCount }}</span>
                     <span class="sr-only">unread messages</span>
                     </button>
                     {{ searchData }}
