@@ -7,7 +7,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-4" v-for="data in data" :key="data">
+            <div class="col-md-3 col-lg-3 col-xl-3" v-for="data in data" :key="data">
                 <Card :data="data" class="mt-5"></Card>
             </div>
         </div>

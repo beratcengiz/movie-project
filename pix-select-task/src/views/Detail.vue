@@ -7,9 +7,8 @@
             </div>
         </div>
         <div class="row">
-
             <div class="col-md-12 mt-5" v-for="data in data" :key="data">
-                <div class="card" style="background-color: #f8f9fa;border:none">
+                <div class="card" style="background-color: #f8f9fa;border:none;border-radius: 2%;">
                     <div class="row no-gutters">
                         <div class="col-md-4" style="padding-top: 0;margin-top:0">
                             <Card :data="data"></Card>

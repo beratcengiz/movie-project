@@ -9,19 +9,15 @@
             </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-                <form class="form-inline my-2 my-lg-0">
-                    <input  class="form-control mr-sm-2" v-model="search" type="search" placeholder="Film Ara" aria-label="Search" v-if="route.path == '/'">
+                    <input  class="form-control mr-sm-2" @input="onChange($event)"   placeholder="Film Ara"  v-if="route.path == '/'">
                     <!-- <router-link to="/favorites" class="ml-3 badge badge-secondary p-2">Favorileri Göster</router-link> -->
-                    <button type="button" class="btn btn-sm text-white" @click="goFavoritePage()">
-                    Favoriler <span class="badge badge-success">{{ favoriteCount }}</span>
+                    <button type="button" class="btn btn-sm text-white d-flex" @click="goFavoritePage()">
+                    Favoriler <span class="badge badge-warning ml-2 p-1">{{ favoriteCount }}</span>
                     <span class="sr-only">unread messages</span>
                     </button>
-                    {{ searchData }}
                     <!-- <div v-for="data in searchData">
                         <Card :data = "data"></Card>
                     </div> -->
-                </form>
             </div>
         </div>
     </div>
@@ -33,8 +29,19 @@ import Search from '../scripts/search.js'
 import myFavorities from '../scripts/favorites.js'
 import router from '../router/router.js'
 import { useRoute } from 'vue-router';
-
-const {search,searchData}= Search();
+import Home from '../scripts/home';
+const {getFavoriteMovies} = Home();
+const {search, searchKeyword, getSearchMovies}= Search();
+const onChange = (event) => {
+    const dataValue = event.target.value
+    if(dataValue.length >= 3) {
+        searchKeyword.value = dataValue
+        getSearchMovies(event.target.value,1)
+    }
+    else{
+        getFavoriteMovies(1)
+    }
+}
 const {favoriteCount} = myFavorities();
 const goFavoritePage = () => {
     if(favoriteCount.value != 0) {
@@ -44,10 +51,4 @@ const goFavoritePage = () => {
 const route = useRoute();
 console.log('route',route.path)
 console.log(favoriteCount)
-// const search = ref('');
-
-// console.log('search',searchData)
-
-
-
 </script>

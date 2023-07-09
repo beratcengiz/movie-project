@@ -12,12 +12,10 @@ const Home = () => {
             params: { api_key,page,language }
         }).then(response => {
             if(count >= 2) {
-                console.log('response2',response)
                 response.data.results.forEach(el => {
                     data.value.push(el);
                 })
             } else {
-                console.log('response',response.data.results)
                 data.value = response.data.results
             }
             

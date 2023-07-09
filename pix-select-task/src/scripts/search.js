@@ -1,24 +1,29 @@
 import Home from "./home"
-import { computed, ref } from "@vue/reactivity";
+import { ref } from "@vue/reactivity";
+import { api, api_key } from "./axios.const";
 const search = ref('');
+const searchKeyword = ref('')
 const result = ref('');
+const isSearch = ref(false)
 const { data, getFavoriteMovies } = Home();
 const Search = () => {
-    const searchData = computed(() => {
-        if (search.value !== '') {
-            data.value = data.value.filter(post => {
-                return post.title.toLowerCase().includes(search.value.toLowerCase())
-            });
-            if (data.value.length == 0) {
-                result.value = 'sonuc'
+    const getSearchMovies = async (keyword, count) => {
+        var page = count;
+        var language = 'tr-TR'
+        await api.get(`/search/movie?query=${keyword}&include_adult=false&language=tr-TR&page=1`, {
+            params: { api_key, page, language }
+        }).then(response => {
+            isSearch.value = true;
+            if (count >= 2) {
+                response.data.results.forEach(el => {
+                    data.value.push(el);
+                })
             } else {
-
+                data.value = response.data.results
             }
-        } else {
-            getFavoriteMovies();
-            result.value = ''
-        }
-    });
-    return { searchData, search, result }
+        });
+    }
+
+    return { getSearchMovies, search, result, isSearch, searchKeyword }
 }
 export default Search;
