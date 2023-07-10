@@ -2,7 +2,9 @@
     <div class="navbar navbar-expand-lg navbar-light  d-flex justify-content-center w-100" style="position: fixed;z-index: 15;background-color: rgb(18,18,18);">
         
         <div class="d-flex justify-content-between align-items-center">
-            <router-link to="/" class="mr-5 text-white" style="color:white;font-weight: bold;" >PIX-SELECT-TASK</router-link>
+            <router-link to="/" class="mr-5 text-white" style="color:white;font-weight: bold;" >
+                <img src="../assets/pixselect_logo.ddb89323.png" style="width: 125px;" alt="">
+            </router-link>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
